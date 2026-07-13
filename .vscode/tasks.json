@@ -1,0 +1,32 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Sauce Labs Login Test (Chrome)",
+			"type": "shell",
+			"command": "npx playwright test tests/saucelabs_login.spec.ts --project=chromium",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "test"
+		},
+		{
+			"label": "Run Sauce Labs Login Test (Chrome)",
+			"type": "shell",
+			"command": "npx playwright test tests/saucelabs_login.spec.ts --project=chromium",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "test"
+		},
+		{
+			"label": "Run Sauce Labs Login Test (Chrome, JS, POM)",
+			"type": "shell",
+			"command": "npx playwright test tests/saucelabs_login.spec.js --project=chromium",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "test"
+		}
+	]
+}
