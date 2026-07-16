@@ -23,7 +23,7 @@ test.describe('OrangeHRM Login Tests', () => {
 
   await page.goto(baseURL);
     // Fill username
-  
+  console.log("The Page title is -------->"+await page.title());
     
     // Verify successful login by checking dashboard elements
     await expect(page.locator('.oxd-topbar-header-breadcrumb h6')).toHaveText('Dashboard');
