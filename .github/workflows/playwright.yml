@@ -29,6 +29,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
+      echo "Running Tests on: ${{ inputs.browser }}"
       run: npx playwright test orangespecs --project=${{ github.event.inputs.browser }}
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
