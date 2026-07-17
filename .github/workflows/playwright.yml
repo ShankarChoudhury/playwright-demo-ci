@@ -44,7 +44,7 @@ jobs:
       - name: Run Playwright tests
         run: |
           echo "Playwright tests started for browser: ${{ github.event.inputs.browser }}"
-          npx playwright test orangespecs --project=${{ github.event.inputs.browser || default('chromium') }}
+          npx playwright test orangespecs --project=${{ github.event.inputs.browser || 'chromium' }}
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
