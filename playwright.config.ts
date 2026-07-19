@@ -58,6 +58,14 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
+     {
+      name: 'Microsoft Edge',
+      use: { 
+        ...devices['Desktop Edge'],  storageState: 'playwright/.auth/user.json',
+        channel: 'msedge' // <--- Targets the installed Edge browser
+      },
+      dependencies: ['setup']
+    }
 
     /* Test against mobile viewports. */
     // {

@@ -12,6 +12,7 @@ on:
           - chromium
           - firefox
           - webkit
+          - 'Microsoft Edge'
       build_version:
         description: 'Version tag to deploy'
         required: false
