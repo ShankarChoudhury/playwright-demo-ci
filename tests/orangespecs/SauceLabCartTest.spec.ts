@@ -23,4 +23,5 @@ test('SauceLabCartTest', async ({ page }) => {
   await page.locator('#logout_sidebar_link').click();
 
   await expect(page.locator('#login-button')).toBeVisible();
+  console.log("The Page title is -------->"+await page.title());
 });
