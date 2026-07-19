@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       browser:
-        description: 'Browser'
+        description: 'Browser to run the tests'
         required: true
         default: 'chromium'
       build_version:
@@ -43,7 +43,7 @@ jobs:
 
       - name: Run Playwright tests
         run: |
-          echo "Playwright tests started for browser: ${{ github.event.inputs.browser }}"
+          echo "Playwright tests started for browser: ${{ github.event.inputs.browser }}|| 'chromium'"
           npx playwright test orangespecs --project=${{ github.event.inputs.browser || 'chromium' }}
 
       - uses: actions/upload-artifact@v4
