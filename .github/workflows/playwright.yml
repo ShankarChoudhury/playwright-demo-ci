@@ -6,7 +6,12 @@ on:
       browser:
         description: 'Browser to run the tests'
         required: true
+        type: choice
         default: 'chromium'
+        options:
+          - chromium
+          - firefox
+          - webkit
       build_version:
         description: 'Version tag to deploy'
         required: false
