@@ -19,7 +19,7 @@ test.describe('OrangeHRM Login Tests', () => {
   });
 
 
- test('Test2', async ({ page }) => {
+ test('Admin Check', async ({ page }) => {
 
   await page.goto(baseURL);
     // Fill username

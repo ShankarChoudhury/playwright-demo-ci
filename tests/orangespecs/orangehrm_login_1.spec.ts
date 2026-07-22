@@ -21,7 +21,9 @@ test.describe('OrangeHRM Login Tests', () => {
   });
 
 
-  test('Test1', async ({ page }) => {
+  test('Dashboard Check', { 
+  tag: ['@smoke', '@orangehrm'] 
+},async ({ page }) => {
 
     await page.goto(baseURL);
     // Fill username

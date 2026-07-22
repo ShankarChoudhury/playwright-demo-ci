@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-test('SauceLabCartTest', async ({ page }) => {
+test('SauceLabCartTest', { 
+  tag: ['@smoke', '@saucelab'] 
+},async ({ page }) => {
   await page.goto('https://www.saucedemo.com/');
 
   console.log("The Page title is -------->"+await page.title());
