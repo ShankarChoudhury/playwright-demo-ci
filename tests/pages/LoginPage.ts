@@ -1,9 +1,14 @@
-// pages/LoginPage.js
-// Page Object for the login page of Sauce Demo
-import { expect, test } from '@playwright/test';
+import { expect, type Page } from '@playwright/test';
 
-class LoginPage {
-  constructor(page) {
+export class LoginPage {
+  private page: Page;
+  private readonly usernameInput: string;
+  private readonly passwordInput: string;
+  private readonly loginButton: string;
+  private readonly menuButton: string;
+  private readonly logoutLink: string;
+
+  constructor(page: Page) {
     this.page = page;
     this.usernameInput = 'input[data-test="username"]';
     this.passwordInput = 'input[data-test="password"]';
@@ -12,24 +17,19 @@ class LoginPage {
     this.logoutLink = '#logout_sidebar_link';
   }
 
-  async navigateToApp(url) {
-    // Navigate to the Sauce Demo login page
+  async navigateToApp(url: string) {
     await this.page.goto(url);
   }
 
-  async login(username, password) {
-    // Fill in username and password, then click login
+  async login(username: string, password: string) {
     await this.page.fill(this.usernameInput, username);
-    await (expect(this.page.locator(this.usernameInput)).toHaveValue(username));
+    await expect(this.page.locator(this.usernameInput)).toHaveValue(username);
     await this.page.fill(this.passwordInput, password);
     await this.page.click(this.loginButton);
   }
 
   async logout() {
-    // Open menu and click logout
     await this.page.click(this.menuButton);
     await this.page.click(this.logoutLink);
   }
 }
-
-module.exports = { LoginPage };

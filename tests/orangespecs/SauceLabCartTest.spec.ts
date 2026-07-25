@@ -1,8 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 test('SauceLabCartTest', { 
-  tag: ['@smoke', '@saucelab'] 
+  tag: ['@smoke'] 
 },async ({ page }) => {
+
   await page.goto('https://www.saucedemo.com/');
 
   console.log("The Page title is -------->"+await page.title());
@@ -10,6 +11,7 @@ test('SauceLabCartTest', {
   await page.fill('#user-name', 'standard_user');
   await page.fill('#password', 'secret_sauce');
   await page.click('#login-button');
+  //await page.getByRole('button', { name: 'login-button' }).dispatchEvent('click');
 
   await expect(page.locator('.inventory_list')).toBeVisible();
 

@@ -4,9 +4,10 @@
       "C:\\Program Files\\nodejs\\node.exe",
       "C:\\cypress\\Playwright\\node_modules\\@playwright\\test\\cli.js",
       "test",
-      "specs",
+      "orangespecs/",
       "--project=chromium",
-      "--headed"
+      "--grep",
+      "@e2e"
     ],
     "configFile": "C:\\cypress\\Playwright\\playwright.config.ts",
     "rootDir": "C:/cypress/Playwright/tests",
@@ -19,14 +20,18 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {},
+    "metadata": {
+      "actualWorkers": 1
+    },
     "preserveOutput": "always",
     "projects": [
       {
         "outputDir": "C:/cypress/Playwright/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 1
+        },
         "id": "setup",
         "name": "setup",
         "testDir": "C:/cypress/Playwright/tests",
@@ -40,7 +45,9 @@
         "outputDir": "C:/cypress/Playwright/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 1
+        },
         "id": "chromium",
         "name": "chromium",
         "testDir": "C:/cypress/Playwright/tests",
@@ -54,7 +61,9 @@
         "outputDir": "C:/cypress/Playwright/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 1
+        },
         "id": "firefox",
         "name": "firefox",
         "testDir": "C:/cypress/Playwright/tests",
@@ -68,9 +77,27 @@
         "outputDir": "C:/cypress/Playwright/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {},
+        "metadata": {
+          "actualWorkers": 1
+        },
         "id": "webkit",
         "name": "webkit",
+        "testDir": "C:/cypress/Playwright/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/cypress/Playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Microsoft Edge",
+        "name": "Microsoft Edge",
         "testDir": "C:/cypress/Playwright/tests",
         "testIgnore": [],
         "testMatch": [
@@ -94,6 +121,12 @@
       [
         "github",
         null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report"
+        }
       ]
     ],
     "reportSlowTests": {
@@ -108,33 +141,113 @@
     "workers": 2,
     "webServer": null
   },
-  "suites": [],
-  "errors": [
+  "suites": [
     {
-      "message": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and '\\\\?\\C:\\cypress\\Playwright\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.",
-      "stack": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and '\\\\?\\C:\\cypress\\Playwright\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.\n    at C:\\cypress\\Playwright\\tests\\specs\\saucelabs_cart.spec.js:4:26",
-      "location": {
-        "file": "C:\\cypress\\Playwright\\tests\\specs\\saucelabs_cart.spec.js",
-        "column": 26,
-        "line": 4
-      },
-      "snippet": "\u001b[90m   at \u001b[39mspecs\\saucelabs_cart.spec.js:4\n\n\u001b[0m \u001b[90m 2 |\u001b[39m \u001b[90m// Playwright test for Sauce Demo login, product verification, and logout using Page Object Model\u001b[39m\n \u001b[90m 3 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 4 |\u001b[39m \u001b[36mconst\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[33m=\u001b[39m require(\u001b[32m'@playwright/test'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 5 |\u001b[39m \u001b[36mconst\u001b[39m { \u001b[33mLoginPage\u001b[39m } \u001b[33m=\u001b[39m require(\u001b[32m'../pages/LoginPage'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 6 |\u001b[39m \u001b[36mconst\u001b[39m { \u001b[33mInventoryPage\u001b[39m } \u001b[33m=\u001b[39m require(\u001b[32m'../pages/InventoryPage'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m \u001b[90m//require('@dotenvx/dotenvx').config();\u001b[39m\u001b[0m"
+      "title": "auth.setup.ts",
+      "file": "auth.setup.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "authenticate",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "setup",
+              "projectName": "setup",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10467,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "OrangeHRM\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-25T19:10:17.834Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "17e3fe6f4d9d8bd79c6b-60f085b113a677673906",
+          "file": "auth.setup.ts",
+          "line": 6,
+          "column": 1
+        }
+      ]
     },
     {
-      "message": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and '\\\\?\\C:\\cypress\\Playwright\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.",
-      "stack": "ReferenceError: require is not defined in ES module scope, you can use import instead\nThis file is being treated as an ES module because it has a '.js' file extension and '\\\\?\\C:\\cypress\\Playwright\\package.json' contains \"type\": \"module\". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.\n    at C:\\cypress\\Playwright\\tests\\specs\\saucelabs_login.spec.js:4:26",
-      "location": {
-        "file": "C:\\cypress\\Playwright\\tests\\specs\\saucelabs_login.spec.js",
-        "column": 26,
-        "line": 4
-      },
-      "snippet": "\u001b[90m   at \u001b[39mspecs\\saucelabs_login.spec.js:4\n\n\u001b[0m \u001b[90m 2 |\u001b[39m \u001b[90m// Playwright test for Sauce Demo login, product verification, and logout using Page Object Model\u001b[39m\n \u001b[90m 3 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 4 |\u001b[39m \u001b[36mconst\u001b[39m { test\u001b[33m,\u001b[39m expect } \u001b[33m=\u001b[39m require(\u001b[32m'@playwright/test'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 5 |\u001b[39m \u001b[36mconst\u001b[39m { \u001b[33mLoginPage\u001b[39m } \u001b[33m=\u001b[39m require(\u001b[32m'../pages/LoginPage'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 6 |\u001b[39m \u001b[36mconst\u001b[39m { \u001b[33mInventoryPage\u001b[39m } \u001b[33m=\u001b[39m require(\u001b[32m'../pages/InventoryPage'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 7 |\u001b[39m \u001b[90m//require('@dotenvx/dotenvx').config();\u001b[39m\u001b[0m"
+      "title": "orangespecs\\saucelab_e2e.spec.ts",
+      "file": "orangespecs/saucelab_e2e.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "SauceLab POM checkout flow",
+          "ok": true,
+          "tags": [
+            "e2e"
+          ],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2362,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "Payment Information: SauceCard #31337\n"
+                    },
+                    {
+                      "text": "Shipping Information: Free Pony Express Delivery!\n"
+                    },
+                    {
+                      "text": "Total amount: Total: $51.81\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-07-25T19:10:29.094Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "f7f4992bb85e9c8b401a-9ae1dc6a54ac27062fed",
+          "file": "orangespecs/saucelab_e2e.spec.ts",
+          "line": 4,
+          "column": 1
+        }
+      ]
     }
   ],
+  "errors": [],
   "stats": {
-    "startTime": "2026-07-13T19:35:44.360Z",
-    "duration": 213.26799999999992,
-    "expected": 0,
+    "startTime": "2026-07-25T19:10:17.181Z",
+    "duration": 14540.163999999999,
+    "expected": 2,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
