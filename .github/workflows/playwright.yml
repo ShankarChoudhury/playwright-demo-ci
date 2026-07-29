@@ -26,6 +26,12 @@ on:
         default: ''
         type: string  
 
+      retry:
+        description: 'Retry for failed tests'
+        required: false
+        default: 0
+        type: number
+
   push:
     branches:
       - main
@@ -59,15 +65,16 @@ jobs:
         run: |
           BROWSER="${{ github.event.inputs.browser || 'chromium' }}"
           TAG="${{ github.event.inputs.tag || '' }}"
+          RETRY="${{ github.event.inputs.retry || 0 }}"
 
           echo "Playwright tests started for browser: $BROWSER"
 
           if [ -n "$TAG" ]; then
-            echo "Running tests with tag: $TAG"
-            npx playwright test orangespecs --project="$BROWSER" --grep "$TAG"
+            echo "Running tests with tag: $TAG and retries: $RETRY"
+            npx playwright test orangespecs --project="$BROWSER" --grep "$TAG" --retries="$RETRY"
           else
-            echo "No tag provided. Running all tests."
-            npx playwright test orangespecs --project="$BROWSER"
+            echo "No tag provided. Running all tests with retries: $RETRY"
+            npx playwright test orangespecs --project="$BROWSER" --retries="$RETRY"
           fi
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
