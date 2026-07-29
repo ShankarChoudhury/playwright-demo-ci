@@ -46,6 +46,8 @@ jobs:
   TestExecution:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    container:
+      image: ://microsoft.com
 
     steps:
       - uses: actions/checkout@v4
