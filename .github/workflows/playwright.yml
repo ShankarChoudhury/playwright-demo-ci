@@ -46,8 +46,8 @@ jobs:
   TestExecution:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.61.1-jammy
+    #container:
+      #image: mcr.microsoft.com/playwright:v1.61.1-jammy
       #options: --user 1001
 
     steps:
@@ -60,8 +60,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      #- name: Install Playwright Browsers
-      #  run: sudo npx playwright install --with-deps
+      - name: Install Playwright Browsers
+        run: sudo npx playwright install --with-deps
 
       - name: Run Playwright tests
         shell: bash
