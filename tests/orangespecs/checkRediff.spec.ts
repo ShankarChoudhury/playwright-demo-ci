@@ -20,8 +20,6 @@ test('Check Rediff links', {
   ];
 
   await page.goto('https://www.rediff.com/', { waitUntil: 'domcontentloaded' });
-  await page.waitForLoadState('load');
-
   const linkTexts = await page.locator('a').evaluateAll((elements) =>
     elements
       .map((element) => element.textContent?.replace(/\s+/g, ' ').trim() ?? '')
