@@ -28,6 +28,7 @@ test.describe('OrangeHRM Login Tests', () => {
     // Verify successful login by checking dashboard elements
     await expect(page.locator('.oxd-topbar-header-breadcrumb h6')).toHaveText('Dashboard');
     
+    
     // Verify user profile dropdown is visible
     await expect(page.locator('//span[text()="Admin"]')).toBeVisible();
     

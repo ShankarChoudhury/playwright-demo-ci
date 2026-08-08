@@ -17,9 +17,16 @@ test.describe('OrangeHRM Login Tests', () => {
     //await page.wait
   });
 
-  test('Dummy Test',()=>{
+  test('Dummy Test',async ({ request })=>{
 
+    const response = await request.get('https://fake-json-api.mock.beeceptor.com/users/1');
 
+  // 2. Validate response status
+  expect(response.ok()).toBeTruthy();
+
+  // 3. Validate response payload
+  const body = await response.json();
+  expect(body.name).toBe('Trever Greenfelder');
   });
 
   test('Should login successfully with valid credentials', async ({ page }) => {
