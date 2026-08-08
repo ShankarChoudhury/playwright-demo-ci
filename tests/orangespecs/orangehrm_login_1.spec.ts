@@ -21,7 +21,7 @@ test.describe('OrangeHRM Login Tests', () => {
   });
 
 
-  test('Dashboard Check', { 
+  test('DashboardCheck', { 
   tag: ['@smoke', '@orangehrm'] 
 },async ({ page }) => {
 

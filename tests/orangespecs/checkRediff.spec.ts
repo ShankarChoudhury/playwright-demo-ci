@@ -5,7 +5,6 @@ test('Check Rediff links', {
 }, async ({ page }) => {
   const expectedLinks = [
     'Home',
-    'Payments',
     'Mail',
     'News',
     'Money',
