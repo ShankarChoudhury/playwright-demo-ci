@@ -39,4 +39,11 @@ test.describe('OrangeHRM Login Tests', () => {
     await page.screenshot({ path: 'screenshot/successful-login.png' });
   });
 
+  test.afterEach(async ({ page }) => {
+    // Logout after each test
+          console.log('The status of the execution is ---> '+test.info().status);
+           console.log('The project name is ---> '+test.info().project.name);
+
+  });
+
 });
