@@ -72,7 +72,7 @@ jobs:
 
           echo "Playwright tests started for browser: $BROWSER"
 
-          if [ -n "$TAG" ]; then
+          if [! -z "$TAG" ]; then
             echo "Running tests with tag: $TAG and retries: $RETRY"
             npx playwright test orangespecs --project="$BROWSER" --grep "$TAG" --retries="$RETRY"
           else

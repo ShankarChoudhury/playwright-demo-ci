@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 
+test.describe.configure({ mode: 'serial' });
+
 test('SauceLabCartTest', { 
   tag: ['@smoke'] 
 },async ({ page }) => {
@@ -7,6 +9,8 @@ test('SauceLabCartTest', {
   await page.goto('https://www.saucedemo.com/');
 
   console.log("The Page title is -------->"+await page.title());
+  console.log('The project name is ---> '+test.info().project.name);
+
 
   await page.fill('#user-name', 'standard_user');
   await page.fill('#password', 'secret_sauce');

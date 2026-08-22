@@ -43,6 +43,9 @@ test.describe('OrangeHRM Login Tests', () => {
     // Logout after each test
           console.log('The status of the execution is ---> '+test.info().status);
            console.log('The project name is ---> '+test.info().project.name);
+           let scores: string[] = ['  ', '92', '78'];
+            let names: string[]
+            names = ['John', 'Alice', 'Bob'];
 
   });
 
