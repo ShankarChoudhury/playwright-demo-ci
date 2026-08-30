@@ -15,7 +15,7 @@ test('Get User test',async ({ request })=>{
   const body = await response.json();
   expect(response.status()).toBe(200);
   expect(typeof body.name).toBe('string');
-  expect(typeof body.zip).toBe('number');
+  expect (body.email).toContain('@');
   // 4. Print the response body for debugging purposes
     console.log("Response Body:", body);
   }); 
