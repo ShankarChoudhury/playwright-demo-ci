@@ -11,7 +11,7 @@ test('Get User test',async ({ request })=>{
   console.log('Request URL:', response.url());
   
   // 2. Validate response status
-  expect(response.ok()).toBeFalsy();
+  expect(response.ok()).toBeTruthy();
 
   // 3. Validate response payload
   const body = await response.json();
