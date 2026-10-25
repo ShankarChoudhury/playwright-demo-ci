@@ -75,10 +75,10 @@ jobs:
 
           if [! -z "$TAG" ]; then
             echo "Running tests with tag: $TAG and retries: $RETRY on build version: $BUILD_VERSION"
-            npx playwright test orangespecs --project="$BROWSER" --grep "$TAG" --retries="$RETRY"
+            npx playwright test uispecs --project="$BROWSER" --grep "$TAG" --retries="$RETRY"
           else
             echo "No tag provided. Running all tests with retries: $RETRY on build version: $BUILD_VERSION"
-            npx playwright test orangespecs --project="$BROWSER" --retries="$RETRY"
+            npx playwright test uispecs --project="$BROWSER" --retries="$RETRY"
           fi
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
