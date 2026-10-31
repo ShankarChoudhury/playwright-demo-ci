@@ -12,7 +12,7 @@ test.beforeEach(async ({ page,helloworld }) => {
 });
 
 test('SauceLabCartTest', { 
-  tag: ['@smoke'] 
+  tag: ['@smoke','@slcart'] 
 },async ({ page,newworld }) => {
 
  
