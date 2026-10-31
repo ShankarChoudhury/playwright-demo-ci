@@ -66,6 +66,11 @@ jobs:
 
       - name: Run Playwright tests
         shell: bash
+        env:
+          BROWSER: ${{ github.event.inputs.browser || 'chromium' }}
+          TAG: ${{ github.event.inputs.tag || '' }}
+          RETRY: ${{ github.event.inputs.retry || 0 }}
+          BUILD_VERSION: ${{ github.event.inputs.build_version || 'v1.0' }}
         run: |
           BROWSER="${{ github.event.inputs.browser || 'chromium' }}"
           TAG="${{ github.event.inputs.tag || '' }}"
@@ -73,8 +78,8 @@ jobs:
           BUILD_VERSION="${{ github.event.inputs.build_version || 'v1.0' }}"
 
           echo "Playwright tests started for browser: $BROWSER"
-          echo {-z "$TAG"}
-          if [! -z "$TAG" ]; then
+          echo "Tag filter: ${TAG:-<none>}"
+          if [[ -n "$TAG" ]]; then
             echo "Running tests with tag: $TAG and retries: $RETRY on build version: $BUILD_VERSION"
             npx playwright test uispecs --project="$BROWSER" --grep "$TAG" --retries="$RETRY"
           else
