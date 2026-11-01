@@ -72,15 +72,10 @@ jobs:
           RETRY: ${{ github.event.inputs.retry || 0 }}
           BUILD_VERSION: ${{ github.event.inputs.build_version || 'v1.0' }}
         run: |
-          BROWSER="${{ github.event.inputs.browser || 'chromium' }}"
-          TAG="${{ github.event.inputs.tag || '' }}"
-          RETRY="${{ github.event.inputs.retry || 0 }}"
-          BUILD_VERSION="${{ github.event.inputs.build_version || 'v1.0' }}"
-
           echo "Playwright tests started for browser: $BROWSER"
           echo "Tag filter: ${TAG:-<none>}"
           if [[ -n "$TAG" ]]; then
-            echo "Running tests with tag: $TAG and retries: $RETRY on build version: $BUILD_VERSION"
+            echo "Running tests with tag: $TAG and retries: $RETRY on build version: $BUILD_VERSION with browser: $BROWSER"
             npx playwright test uispecs --project="$BROWSER" --grep "$TAG" --retries="$RETRY"
           else
             echo "No tag provided. Running all tests with retries: $RETRY on build version: $BUILD_VERSION"
