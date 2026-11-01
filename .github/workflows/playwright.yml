@@ -78,7 +78,7 @@ jobs:
             echo "Running tests with tag: $TAG and retries: $RETRY on build version: $BUILD_VERSION with browser: $BROWSER"
             npx playwright test uispecs --project="$BROWSER" --grep "$TAG" --retries="$RETRY"
           else
-            echo "No tag provided. Running all tests with retries: $RETRY on build version: $BUILD_VERSION"
+            echo "No tag provided. Running all tests with retries: $RETRY on build version: $BUILD_VERSION with browser: $BROWSER"
             npx playwright test uispecs --project="$BROWSER" --retries="$RETRY"
           fi
       - uses: actions/upload-artifact@v4
